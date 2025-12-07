@@ -35,19 +35,15 @@ const Features = () => {
         </div>
         <div className="space-y-3">
           <h1 className="text-red-500 font-bold"> -- OUR FEATURES</h1>
-          <div className="">
-            <h1 className="text-4xl font-bold">Quick & Easy</h1>
-            <p className="text-gray-500">
-              Ramp Up High-Level,And We Need A Paradigm Shift Reach
-              Out,Data-Point,Nor Wheelhouse
-            </p>
-          </div>
+          <h1 className="text-4xl font-bold">
+            We have better and more feature
+          </h1>
           <p></p>
           <ul>
             {features.map((feature) => (
               <li className="mt-3">
                 <h1 className="font-bold text-lg flex items-center gap-1">
-                  <VscActivateBreakpoints size={23}/>
+                  <VscActivateBreakpoints size={23} />
                   {feature.title}
                 </h1>
                 <p className="text-gray-500 ml-5">{feature.description}</p>
