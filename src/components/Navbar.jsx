@@ -4,7 +4,6 @@ import { Link, NavLink } from "react-router";
 // import { toast } from "react-toastify";
 import { FiMoon } from "react-icons/fi";
 import { FaSun } from "react-icons/fa";
-import logo from "../assets/logo.png"
 
 const Navbar = () => {
 //   const { user, setUser, signOutUser } = useContext(AuthContext);
