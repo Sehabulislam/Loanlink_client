@@ -1,9 +1,84 @@
 import { createBrowserRouter } from "react-router";
 import Home from "../pages/Home/Home";
+import MainLayout from "../layouts/MainLayout";
+import AllLoans from "../pages/Loans/AllLoans";
+import ApplyLoan from "../pages/Loans/ApplyLoan";
+import MyLoans from "../pages/Dashboard/User/MyLoans";
+import LoanDetails from "../pages/Loans/LoanDetails";
+import Login from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register";
+import Error404 from "../components/Error404";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <MainLayout></MainLayout>,
+    // hydrateFallbackElement: <Loading></Loading>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/allLoans",
+        element: <AllLoans></AllLoans>,
+      },
+    //   {
+    //     path: "/applyLoan",
+    //     element: (
+    //       <PrivateRoute>
+    //         <ApplyLoan></ApplyLoan>
+    //       </PrivateRoute>
+    //     ),
+    //   },
+    //   {
+    //     path: "/myLoans",
+    //     element: (
+    //       <PrivateRoute>
+    //         <MyLoans></MyLoans>
+    //       </PrivateRoute>
+    //     ),
+    //   },
+    //   {
+    //     path: "/updateProperty/:id",
+    //     loader: ({ params }) =>
+    //       fetch(
+    //         `https://homenest-server-kappa.vercel.app/updateProperty/${params.id}`
+    //       ),
+    //     element: <UpdateProperty></UpdateProperty>,
+    //   },
+    //   {
+    //     path: "/loanDetails/:id",
+    //     // loader: ({ params }) =>
+    //     //   fetch(
+    //     //     `https://homenest-server-kappa.vercel.app/propertyDetails/${params.id}`
+    //     //   ),
+    //     element: (
+    //       <PrivateRoute>
+    //         <LoanDetails></LoanDetails>
+    //       </PrivateRoute>
+    //     ),
+    //   },
+    //   {
+    //     path: "/myRatings",
+    //     element: (
+    //       <PrivateRoute>
+    //         <MyRatings></MyRatings>
+    //       </PrivateRoute>
+    //     ),
+    //   },
+      {
+        path: "/Login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <Error404></Error404>,
   },
 ]);
