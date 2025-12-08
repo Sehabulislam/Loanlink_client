@@ -42,7 +42,7 @@ const WorkProcess = () => {
         {workflowSteps.map((work, idx) => (
           <div
             key={idx}
-            className="hover:bg-red-400 hover:text-white flex flex-col justify-center items-center gap-4 p-5 rounded-2xl shadow-xl transition-all duration-1000 ease-in-out"
+            className=" flex flex-col justify-center items-center gap-4 p-4 rounded-2xl shadow-xl duration-75"
           >
             <img
               src={work.image}

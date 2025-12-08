@@ -25,30 +25,26 @@ const faq = [
 const FAQ = () => {
   return (
     <div className="w-11/12 mx-auto">
-      <div className="grid grid-cols-2 items-center gap-7">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-7">
         <div>
           <img
             src="https://www.morty.com/resources/wp-content/uploads/2023/10/referral-hero-1024x889.webp"
-            alt="" className="h-140 w-full object-cover rounded-2xl"
+            alt=""
+            className="w-full h-130 object-cover rounded-2xl"
           />
         </div>
         <div className="space-y-3">
           <h1 className="text-red-500 font-bold"> -- FAQ</h1>
-            <h1 className="text-4xl font-bold">Frequently Asked Questions ?</h1>
-          {
-            faq.map(f => 
-                <div className="collapse collapse-arrow bg-base-100 border border-base-300">
-            <input type="radio" name="my-accordion-2" defaultChecked />
-            <div className="collapse-title font-semibold">
-              {f.question}
+          <h1 className="text-4xl font-bold">Frequently Asked Questions ?</h1>
+          {faq.map((f) => (
+            <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+              <input type="radio" name="my-accordion-2" defaultChecked />
+              <div className="collapse-title font-semibold">{f.question}</div>
+              <div className="collapse-content text-sm text-gray-500">
+                {f.answer}
+              </div>
             </div>
-            <div className="collapse-content text-sm text-gray-500">
-              {f.answer}
-            </div>
-          </div>
-            )
-          }
-          
+          ))}
         </div>
       </div>
     </div>

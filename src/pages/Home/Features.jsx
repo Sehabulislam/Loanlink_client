@@ -26,11 +26,12 @@ const features = [
 const Features = () => {
   return (
     <div className="w-11/12 mx-auto">
-      <div className="flex flex-col md:flex-row items-center gap-7">
+      <div className="grid md:grid-cols-2 items-center gap-7">
         <div>
           <img
             src="https://www.morty.com/resources/wp-content/uploads/2023/10/referral-hero-1024x889.webp"
             alt=""
+            className="w-full h-130 object-cover rounded-2xl"
           />
         </div>
         <div className="space-y-3">
