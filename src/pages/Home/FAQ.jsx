@@ -34,7 +34,7 @@ const FAQ = () => {
           />
         </div>
         <div className="space-y-3">
-          <h1 className="text-red-500 font-bold"> -- FAQ</h1>
+          <h1 className="text-red-500 font-bold text-xl"> -- FAQ</h1>
           <h1 className="text-4xl font-bold">Frequently Asked Questions ?</h1>
           {faq.map((f) => (
             <div className="collapse collapse-arrow bg-base-100 border border-base-300">

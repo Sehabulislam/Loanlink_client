@@ -35,7 +35,7 @@ const Features = () => {
           />
         </div>
         <div className="space-y-3">
-          <h1 className="text-red-500 font-bold"> -- OUR FEATURES</h1>
+          <h1 className="text-red-500 font-bold text-xl"> -- OUR FEATURES</h1>
           <h1 className="text-4xl font-bold">
             We have better and more feature
           </h1>

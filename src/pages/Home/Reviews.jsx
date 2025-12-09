@@ -12,6 +12,8 @@ const userReviews = [
     reviewerImage:
       "https://images.unsplash.com/photo-1615109398623-88346a601842?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     reviewerName: "Rahim Uddin",
+    reviewerPosition: "Software Engineer",
+    reviewerCompanyName: "Tech Solutions Ltd",
     reviewerReview:
       "Loanlink provides quick loan approval and the entire process feels very easy and hassle-free.",
   },
@@ -19,6 +21,8 @@ const userReviews = [
     reviewerImage:
       "https://images.unsplash.com/photo-1602442787305-decbd65be507?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     reviewerName: "Fatima Khan",
+    reviewerPosition: "Marketing Manager",
+    reviewerCompanyName: "Creative Minds Agency",
     reviewerReview:
       "Document verification was clear, there was no hassle. The service is truly user-friendly and fast.",
   },
@@ -26,6 +30,8 @@ const userReviews = [
     reviewerImage:
       "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     reviewerName: "Sohan Ali",
+    reviewerPosition: "Business Owner",
+    reviewerCompanyName: "Ali Traders",
     reviewerReview:
       "Getting a loan from Loanlink is very easy, and their support team was extremely helpful.",
   },
@@ -33,6 +39,8 @@ const userReviews = [
     reviewerImage:
       "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     reviewerName: "Nusrat Jahan",
+    reviewerPosition: "HR Director",
+    reviewerCompanyName: "Global Enterprises",
     reviewerReview:
       "Interest rates are transparent, everything is clearly displayed. Very satisfied with Loanlink's service.",
   },
@@ -40,6 +48,8 @@ const userReviews = [
     reviewerImage:
       "https://plus.unsplash.com/premium_photo-1689977927774-401b12d137d6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     reviewerName: "Arif Chowdhury",
+    reviewerPosition: "Financial Analyst",
+    reviewerCompanyName: "Capital Bank",
     reviewerReview:
       "Loan disbursement was fast and all information is easily accessible on the dashboard.",
   },
@@ -48,7 +58,7 @@ const Reviews = () => {
   return (
     <div className="md:w-10/12 mx-auto">
       <div className="text-center gap-4">
-        <h1 className="text-red-500 font-bold">-- Customer Testimonials</h1>
+        <h1 className="text-red-500 font-bold text-xl">-- Customer Testimonials</h1>
         <h1 className="text-2xl md:text-3xl font-bold">
           What our customers are sayings
         </h1>
@@ -91,7 +101,8 @@ const Reviews = () => {
                 />
                 <div className="">
                   <h1 className="text-2xl font-bold">{review.reviewerName}</h1>
-                  <h2>{review.user_email}</h2>
+                  <h2 className="text-gray-500">{review.reviewerPosition}</h2>
+                  <h2 className="text-gray-500 font-semibold">{review.reviewerCompanyName}</h2>
                 </div>
               </div>
             </SwiperSlide>

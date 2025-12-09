@@ -8,7 +8,7 @@ import Reviews from './Reviews';
 const Home = () => {
     return (
         <div className='space-y-10'>
-            {/* <Banner></Banner> */}
+            <Banner></Banner>
             <Features></Features>
             <FAQ></FAQ>
             <WorkProcess></WorkProcess>
