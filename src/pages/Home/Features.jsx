@@ -26,17 +26,18 @@ const features = [
 const Features = () => {
   return (
     <div className="w-11/12 mx-auto">
-      <div className="grid md:grid-cols-2 items-center gap-7">
+      <h1 className="text-red-500 font-bold md:text-xl text-center md:text-start block md:hidden"> -- OUR FEATURES</h1>
+      <div className="grid lg:grid-cols-2 items-center gap-7">
         <div>
           <img
             src="https://www.morty.com/resources/wp-content/uploads/2023/10/referral-hero-1024x889.webp"
             alt=""
-            className="w-full h-130 object-cover rounded-2xl"
+            className="w-full md:h-130 object-cover rounded-2xl"
           />
         </div>
         <div className="space-y-3">
-          <h1 className="text-red-500 font-bold text-xl"> -- OUR FEATURES</h1>
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-red-500 font-bold md:text-xl text-center md:text-start hidden md:block"> -- OUR FEATURES</h1>
+          <h1 className="text-3xl text-center md:text-start md:text-4xl font-bold">
             We have better and more feature
           </h1>
           <p></p>

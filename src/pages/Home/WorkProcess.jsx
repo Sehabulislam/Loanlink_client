@@ -32,10 +32,10 @@ const workflowSteps = [
 
 const WorkProcess = () => {
   return (
-    <div className=" p-10 max-w-8xl mx-auto rounded-2xl mb-10">
+    <div className="p-2 md:p-10 max-w-8xl mx-auto rounded-2xl mb-10">
       <div className="flex flex-col justify-center items-center gap-2 mb-10">
-        <h1 className="text-red-500 font-bold text-xl">-- HOW IT WORKS --</h1>
-        <h1 className="text-4xl font-bold">Our Working Process</h1>
+        <h1 className="text-red-500 font-bold md:text-xl">-- HOW IT WORKS --</h1>
+        <h1 className="text-3xl md:text-4xl font-bold">Our Working Process</h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">

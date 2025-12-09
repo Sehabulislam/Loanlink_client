@@ -4,11 +4,13 @@ import Features from './Features';
 import FAQ from './FAQ';
 import WorkProcess from './WorkProcess';
 import Reviews from './Reviews';
+import AvailableLoan from './AvailableLoan';
 
 const Home = () => {
     return (
         <div className='space-y-10'>
             <Banner></Banner>
+            <AvailableLoan></AvailableLoan>
             <Features></Features>
             <FAQ></FAQ>
             <WorkProcess></WorkProcess>

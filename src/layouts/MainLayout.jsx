@@ -6,10 +6,10 @@ import Footer from '../components/Footer';
 const MainLayout = () => {
     return (
         <div>
-            <div className="">
+            <div className="h-fit sticky top-0">
                 <Navbar ></Navbar>
             </div>
-            <main className='w-11/12 mx-auto min-h-[calc(100vh-289px)]'>
+            <main className='p-1 md:w-11/12 mx-auto min-h-[calc(100vh-289px)]'>
                 <Outlet></Outlet>
             </main>
             <Footer></Footer>

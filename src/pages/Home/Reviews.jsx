@@ -58,8 +58,8 @@ const Reviews = () => {
   return (
     <div className="md:w-10/12 mx-auto">
       <div className="text-center gap-4">
-        <h1 className="text-red-500 font-bold text-xl">-- Customer Testimonials</h1>
-        <h1 className="text-2xl md:text-3xl font-bold">
+        <h1 className="text-red-500 font-bold md:text-xl">-- Customer Testimonials</h1>
+        <h1 className="text-3xl md:text-4xl font-bold">
           What our customers are sayings
         </h1>
       </div>
