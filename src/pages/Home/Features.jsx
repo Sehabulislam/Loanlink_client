@@ -42,8 +42,8 @@ const Features = () => {
           </h1>
           <p></p>
           <ul>
-            {features.map((feature) => (
-              <li className="mt-3">
+            {features.map((feature,ind) => (
+              <li key={ind} className="mt-3">
                 <h1 className="font-bold text-lg flex items-center gap-1">
                   <VscActivateBreakpoints size={23} />
                   {feature.title}

@@ -28,8 +28,8 @@ const FAQ = () => {
       <div className="space-y-3 text-center">
         <h1 className="text-red-500 font-bold md:text-xl"> -- FAQ</h1>
         <h1 className="text-3xl md:text-4xl font-bold">Frequently Asked Questions ?</h1>
-        {faq.map((f) => (
-          <div className="collapse collapse-arrow bg-base-100 border border-base-300 text-start">
+        {faq.map((f,ind) => (
+          <div key={ind} className="collapse collapse-arrow bg-base-100 border border-base-300 text-start">
             <input type="radio" name="my-accordion-2" defaultChecked />
             <div className="collapse-title font-semibold">{f.question}</div>
             <div className="collapse-content text-sm text-gray-500">

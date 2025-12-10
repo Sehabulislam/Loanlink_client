@@ -56,7 +56,7 @@ const userReviews = [
 ];
 const Reviews = () => {
   return (
-    <div className="md:w-10/12 mx-auto">
+    <div className="md:w-11/12 mx-auto">
       <div className="text-center gap-4">
         <h1 className="text-red-500 font-bold md:text-xl">-- Customer Testimonials</h1>
         <h1 className="text-3xl md:text-4xl font-bold">
@@ -89,7 +89,7 @@ const Reviews = () => {
       >
         <div className="hidden">
           {userReviews.map((review) => (
-            <SwiperSlide className="bg-base-100 rounded-2xl p-5 border-l-7 border-red-500 shadow-2xl">
+            <SwiperSlide className="bg-base-100 rounded-2xl p-5 border-l-7 border-red-500 shadow-2xl mb-5">
               <img src={comment} alt="" />
               <p>{review.reviewerReview}</p>
               <h1 className="border border-dashed my-2 border-gray-400"></h1>

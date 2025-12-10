@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import useAuth from "../hooks/useAuth";
-// import { AuthContext } from "../context/AuthProvider";
-// import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+import { TfiMenuAlt } from "react-icons/tfi";
 
 const Navbar = () => {
   const { user, setUser, signOutUser } = useAuth();
@@ -16,15 +16,15 @@ const Navbar = () => {
   const handleTheme = (checked) => {
     setTheme(checked ? "dark" : "light");
   };
-    const handleSignOut = () => {
-      signOutUser()
-        .then(() => {
-          setUser(null);
-        })
-        .catch((error) => {
-          toast.error(error.message);
-        });
-    };
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        setUser(null);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
   const links = (
     <>
@@ -57,7 +57,7 @@ const Navbar = () => {
       ) : (
         <>
           <NavLink
-            to={"/"}
+            to={"/about"}
             className={({ isActive }) =>
               isActive
                 ? "font-semibold border-b-2 text-red-500"
@@ -67,7 +67,7 @@ const Navbar = () => {
             About
           </NavLink>
           <NavLink
-            to={"/"}
+            to={"/contact"}
             className={({ isActive }) =>
               isActive
                 ? "font-semibold border-b-2 text-red-500"
@@ -86,21 +86,7 @@ const Navbar = () => {
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
-              </svg>
+              <TfiMenuAlt size={20}/>
             </div>
             <ul
               tabIndex="-1"
@@ -153,7 +139,6 @@ const Navbar = () => {
           ) : (
             <>
               <label className="swap swap-rotate">
-                {/* this hidden checkbox controls the state */}
                 <input
                   onChange={(e) => handleTheme(e.target.checked)}
                   defaultChecked={localStorage.getItem("theme") === "dark"}

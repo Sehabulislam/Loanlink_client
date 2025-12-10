@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Bannar from "../../assets/loan_office.jpg";
 
 const Banner = () => {
@@ -11,9 +12,9 @@ const Banner = () => {
           Our Loans Will Make Your Dreams Come True
         </h1>
         <div className="flex gap-2 md:gap-5">
-            <button className="btn bg-red-500 hover:bg-red-600 border-2 border-red-500 md:p-6 md:text-lg text-white shadow-none">
+            <Link to={'/allLoans'} className="btn bg-red-500 hover:bg-red-600 border-2 border-red-500 md:p-6 md:text-lg text-white shadow-none">
           Our Service
-        </button>
+        </Link>
         <button className="btn border-2 bg-transparent hover:shadow-2xl hover:shadow-red-500 text-white border-red-500 md:p-6 md:text-lg shadow-none">
           Apply For Loan
         </button>
