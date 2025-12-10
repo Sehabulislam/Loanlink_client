@@ -1,13 +1,40 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Login = () => {
-    const {register,errors} = useForm()
-    const handleSubmit =()=>{
-        console.log('jfvdkanjkdf');
+  const navigate = useNavigate();
+  const location = useLocation()
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm();
+      const {signInWithGoogle,loginUser}=useAuth();
+    const handleLogin =(data)=>{
+        loginUser(data.email,data.password)
+        .then(result =>{
+          console.log(result);
+          navigate(location.state?.from || '/')
+          toast.success("User Logged In Successfully");
+        }).catch(error => {
+          toast.error(error.message);
+          console.log(error);
+        })
     }
+    const handleGoogleSignIn = () => {
+    signInWithGoogle()
+    .then(result =>{
+      console.log(result);
+      toast.success("User Registered Successfully");
+    }).catch(error => {
+      toast.error(error.message);
+      console.log(error);
+    })
+  }
   return (
       <div className="flex w-10/12 lg:w-11/12 mx-auto">
           <div className="full lg:max-w-4xl mx-auto space-y-5 lg:py-10">
@@ -16,7 +43,7 @@ const Login = () => {
               <h1 className="text-2xl font-bold">Login with Loan<span className="text-red-500">Link</span></h1>
               
             </div>
-            <form onSubmit={handleSubmit('handleLogin')} className="space-y-4">
+            <form onSubmit={handleSubmit(handleLogin)} className="space-y-4">
               <div>
                 <label>Email</label>
                 <input
@@ -42,7 +69,7 @@ const Login = () => {
                   })}
                   className="w-full input md:input-lg md:text-xl mt-1 "
                 />
-                {/* {errors.password?.type === "required" && (
+                {errors.password?.type === "required" && (
                   <p className="text-red-500">Password is required</p>
                 )}
                 {errors.password?.type === "minLength" && (
@@ -56,7 +83,7 @@ const Login = () => {
                     number, 1 special character and be minimum 6 characters
                     long.
                   </p>
-                )} */}
+                )}
               </div>
               <h1 className="underline text-red-500  ">Forget Password?</h1>
               <button className="btn w-full text-lg bg-red-500 text-white">Login</button>
@@ -73,7 +100,7 @@ const Login = () => {
             </h1>
             <div className="divider">OR</div>
             <button
-              onClick={'handleGoogleSignIn'}
+              onClick={handleGoogleSignIn}
               className="btn bg-gray-100 border-none text-lg text-black border-[#e5e5e5] w-full p-5"
             >
               <FcGoogle size={28} />

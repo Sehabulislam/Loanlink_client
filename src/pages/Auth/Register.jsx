@@ -1,58 +1,90 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
-  const { register, errors } = useForm();
-  const handleSubmit = () => {
-    console.log("jfvdkanjkdf");
+  const { registerUser, signInWithGoogle, setUser } = useAuth();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const handleRegister = (data) => {
+    console.log(data);
+
+    registerUser(data.email, data.password)
+      .then((result) => {
+        setUser(result.user);
+        console.log(result);
+        navigate(location.state?.from || "/");
+        toast.success("User Registered Successfully");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        console.log(error);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result);
+        toast.success("User Registered Successfully");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        console.log(error);
+      });
   };
   return (
     <div className="flex w-10/12 lg:w-11/12 mx-auto">
-      <div className="full lg:max-w-4xl mx-auto space-y-5 lg:py-10">
+      <div className="full md:max-w-lg mx-auto space-y-5 lg:py-10">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold">Create an Account</h1>
           <h1 className="text-2xl font-bold">
             Register with Loan<span className="text-red-500">Link</span>
           </h1>
         </div>
-        <form onSubmit={handleSubmit("handleLogin")} className="space-y-4">
-           <div>
-                <label>Name</label>
-                <input
-                  type="text"
-                  {...register("name", { required: true })}
-                  placeholder="Your Name"
-                  className="w-full input md:input-lg mt-1 "
-                />
-                {/* {errors.name?.type === "required" && (
-                  <p className="text-red-500">Name is required</p>
-                )} */}
-              </div>
-              <div>
-                <label>Email</label>
-                <input
-                  type="email"
-                  {...register("email", { required: true })}
-                  placeholder="Your Email"
-                  className="w-full input md:input-lg mt-1 "
-                />
-                {/* {errors.email?.type === "required" && (
-                  <p className="text-red-500">Email is required</p>
-                )} */}
-              </div>
-              <div className="">
-                <label>Photo</label>
-                <input
-                  type="file"
-                  {...register("photo", { required: true })}
-                  className="file-input file-input-neutral w-full input-lg"
-                />
-                {/* {errors.photo?.type === "required" && (
+        <form onSubmit={handleSubmit(handleRegister)} className="space-y-4">
+          <div>
+            <label>Name</label>
+            <input
+              type="text"
+              {...register("name", { required: true })}
+              placeholder="Your Name"
+              className="w-full input md:input-lg mt-1 "
+            />
+            {errors.name?.type === "required" && (
+              <p className="text-red-500">Name is required</p>
+            )}
+          </div>
+          <div>
+            <label>Email</label>
+            <input
+              type="email"
+              {...register("email", { required: true })}
+              placeholder="Your Email"
+              className="w-full input md:input-lg mt-1 "
+            />
+            {errors.email?.type === "required" && (
+              <p className="text-red-500">Email is required</p>
+            )}
+          </div>
+          {/* <div className="">
+            <label>Photo</label>
+            <input
+              type="file"
+              {...register("photo", { required: true })}
+              className="file-input file-input-neutral w-full input-lg"
+            />
+            {errors.photo?.type === "required" && (
                   <p className="text-red-500">Photo is required</p>
-                )} */}
-              </div>
+                )}
+          </div> */}
           <div>
             <label>Password</label>
             <input
@@ -66,27 +98,29 @@ const Register = () => {
               })}
               className="w-full input md:input-lg md:text-xl mt-1 "
             />
-            {/* {errors.password?.type === "required" && (
-                  <p className="text-red-500">Password is required</p>
-                )}
-                {errors.password?.type === "minLength" && (
-                  <p className="text-red-500">
-                    Password must be 6 characters or longer.
-                  </p>
-                )}
-                {errors.password?.type === "pattern" && (
-                  <p className="text-red-500">
-                    Password must contain at least 1 uppercase, 1 lowercase, 1
-                    number, 1 special character and be minimum 6 characters
-                    long.
-                  </p>
-                )} */}
+            {errors.password?.type === "required" && (
+              <p className="text-red-500">Password is required</p>
+            )}
+            {errors.password?.type === "minLength" && (
+              <p className="text-red-500">
+                Password must be 6 characters or longer.
+              </p>
+            )}
+            {errors.password?.type === "pattern" && (
+              <p className="text-red-500">
+                Password must contain at least 1 uppercase, 1 lowercase, 1
+                number, 1 special character and be minimum 6 characters long.
+              </p>
+            )}
           </div>
           <label className="label">
             <input type="checkbox" defaultChecked className="checkbox" />
             Remember me
           </label>
-          <button className="btn w-full text-lg bg-red-500 text-white">
+          <button
+            type="submit"
+            className="btn w-full text-lg bg-red-500 text-white"
+          >
             Register
           </button>
         </form>
@@ -102,18 +136,13 @@ const Register = () => {
         </h1>
         <div className="divider">OR</div>
         <button
-          onClick={"handleGoogleSignIn"}
+          onClick={handleGoogleSignIn}
           className="btn bg-gray-100 border-none text-lg text-black border-[#e5e5e5] w-full p-5"
         >
           <FcGoogle size={28} />
           Register with Google
         </button>
       </div>
-
-      {/* img
-        <div className="">
-          <img src={loginImg} alt="image" className="w-200 lg:mt-30" />
-        </div> */}
     </div>
   );
 };
