@@ -17,9 +17,9 @@ const AllLoans = () => {
   return (
     <div className="">
       <div>
-        <h1 className="text-red-500 font-bold md:text-xl text-center">
+        <h1 className="text-red-500 font-bold md:text-3xl border-b-2  w-sm mx-auto text-center">
           {" "}
-          -- All Loans
+           All Loans
         </h1>
       </div>
       <div className="md:w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2 py-5">

@@ -30,6 +30,7 @@ const Login = () => {
     .then(result =>{
       console.log(result);
       toast.success("User Registered Successfully");
+      navigate(location.state?.from || "/");
     }).catch(error => {
       toast.error(error.message);
       console.log(error);

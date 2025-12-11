@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { FaDollarSign } from "react-icons/fa";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { IoMdArrowBack } from "react-icons/io";
@@ -76,6 +77,10 @@ const LoanDetails = () => {
   const loan = useLoaderData();
   const { category, description, image, interest, maxLimit, title } = loan;
   const navigate = useNavigate();
+
+  const handleApplyNow = () => {
+    toast.success("Apply Successful!");
+  }
   return (
     <div className="md:py-10">
       <h1
@@ -111,7 +116,7 @@ const LoanDetails = () => {
               <span className="font-bold">Max Limit : </span>
               {maxLimit}
             </h2>
-            <button className="btn bg-red-500 hover:bg-red-600 text-white w-full md:w-50 md:px-10 md:py-6 md:text-lg">
+            <button onClick={handleApplyNow} className="btn bg-red-500 hover:bg-red-600 text-white w-full md:w-50 md:px-10 md:py-6 md:text-lg">
               Apply Now
             </button>
           </div>
