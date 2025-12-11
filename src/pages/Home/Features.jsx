@@ -48,7 +48,7 @@ const Features = () => {
                   <VscActivateBreakpoints size={23} />
                   {feature.title}
                 </h1>
-                <p className="text-gray-500 ml-5">{feature.description}</p>
+                <p className="text-gray-500 ml-5 text-sm md:text-md">{feature.description}</p>
               </li>
             ))}
           </ul>

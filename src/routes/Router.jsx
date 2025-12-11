@@ -8,12 +8,13 @@ import LoanDetails from "../pages/Loans/LoanDetails";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import Error404 from "../components/Error404";
+import Spinner from "../components/Spinner";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    // hydrateFallbackElement: <Loading></Loading>,
+    hydrateFallbackElement: <Spinner></Spinner>,
     children: [
       {
         path: "/",
@@ -23,50 +24,26 @@ export const router = createBrowserRouter([
         path: "/allLoans",
         element: <AllLoans></AllLoans>,
       },
-    //   {
-    //     path: "/applyLoan",
-    //     element: (
-    //       <PrivateRoute>
-    //         <ApplyLoan></ApplyLoan>
-    //       </PrivateRoute>
-    //     ),
-    //   },
-    //   {
-    //     path: "/myLoans",
-    //     element: (
-    //       <PrivateRoute>
-    //         <MyLoans></MyLoans>
-    //       </PrivateRoute>
-    //     ),
-    //   },
-    //   {
-    //     path: "/updateProperty/:id",
-    //     loader: ({ params }) =>
-    //       fetch(
-    //         `https://homenest-server-kappa.vercel.app/updateProperty/${params.id}`
-    //       ),
-    //     element: <UpdateProperty></UpdateProperty>,
-    //   },
-    //   {
-    //     path: "/loanDetails/:id",
-    //     // loader: ({ params }) =>
-    //     //   fetch(
-    //     //     `https://homenest-server-kappa.vercel.app/propertyDetails/${params.id}`
-    //     //   ),
-    //     element: (
-    //       <PrivateRoute>
-    //         <LoanDetails></LoanDetails>
-    //       </PrivateRoute>
-    //     ),
-    //   },
-    //   {
-    //     path: "/myRatings",
-    //     element: (
-    //       <PrivateRoute>
-    //         <MyRatings></MyRatings>
-    //       </PrivateRoute>
-    //     ),
-    //   },
+      //   {
+      //     path: "/applyLoan",
+      //     element: (
+      //       <PrivateRoute>
+      //         <ApplyLoan></ApplyLoan>
+      //       </PrivateRoute>
+      //     ),
+      //   },
+      //   {
+      //     path: "/loanDetails/:id",
+      //     // loader: ({ params }) =>
+      //     //   fetch(
+      //     //     `https://homenest-server-kappa.vercel.app/propertyDetails/${params.id}`
+      //     //   ),
+      //     element: (
+      //       <PrivateRoute>
+      //         <LoanDetails></LoanDetails>
+      //       </PrivateRoute>
+      //     ),
+      //   },
       {
         path: "/Login",
         element: <Login></Login>,

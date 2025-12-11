@@ -56,7 +56,7 @@ const userReviews = [
 ];
 const Reviews = () => {
   return (
-    <div className="md:w-11/12 mx-auto">
+    <div className="md:w-11/12 mx-auto p-1">
       <div className="text-center gap-4">
         <h1 className="text-red-500 font-bold md:text-xl">-- Customer Testimonials</h1>
         <h1 className="text-3xl md:text-4xl font-bold">

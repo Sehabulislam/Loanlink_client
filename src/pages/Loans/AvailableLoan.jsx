@@ -16,18 +16,17 @@ const AvailableLoan = () => {
   return (
     <div className="text-center">
       <h1 className="text-red-500 font-bold md:text-xl"> -- Loan Type</h1>
-      <h1 className="text-3xl md:text-4xl font-bold">Available Loans</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-10/12 mx-auto gap-3">
+      <h1 className="text-3xl md:text-4xl font-bold mb-5">Available Loans</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2 md:w-10/12 mx-auto gap-3">
         {/* Single Loan Card */}
         {data?.map((loan) => (
-          <div className="w-full p-5 bg-base-300  flex flex-col items-center justify-center text-center space-y-2 rounded-2xl mt-5">
+          <div className="w-full p-5 bg-base-300  flex flex-col items-center justify-center text-center space-y-1 md:space-y-2 rounded-2xl">
             <img
-              src="https://static.vecteezy.com/system/resources/thumbnails/007/749/686/small/money-bag-and-stopwatch-in-a-man-s-hand-quick-loan-timely-payment-financial-decision-quick-money-loan-in-the-short-term-vector.jpg"
-              alt=""
-              className="w-30 h-30 object-cover rounded-full"
+              src={loan.image}
+              className="w-25 md:w-30 h-25 md:h-30 object-cover rounded-full"
             />
-            <h1 className="text-3xl font-bold">{loan.title}</h1>
-            <p>{loan.description}</p>
+            <h1 className="text-2xl md:text-3xl font-bold">{loan.title}</h1>
+            <p className="text-sm md:text-md">{loan.description}</p>
             <h3 className="font-semibold">Max Limits : ${loan.maxLimit}</h3>
             <Link className="btn bg-red-500 md:px-6 py-2 text-white cursor-pointer  hover:bg-red-600 transition-all">
               View Details

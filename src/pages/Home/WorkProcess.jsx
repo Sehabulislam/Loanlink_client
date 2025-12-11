@@ -42,7 +42,7 @@ const WorkProcess = () => {
         {workflowSteps.map((work, idx) => (
           <div
             key={idx}
-            className=" flex flex-col justify-center items-center gap-4 p-4 rounded-2xl shadow-xl duration-75"
+            className=" flex flex-col justify-center items-center gap-2 md:gap-4 p-4 rounded-2xl shadow-xl duration-75"
           >
             <img
               src={work.image}
@@ -53,7 +53,7 @@ const WorkProcess = () => {
             <h1 className="text-xl md:text-2xl font-bold">
               {work.stepTitle}
             </h1>
-            <p className="text-center">{work.stepDescription}</p>
+            <p className="text-center text-sm md:text-md">{work.stepDescription}</p>
           </div>
         ))}
       </div>
