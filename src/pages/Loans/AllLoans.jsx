@@ -33,7 +33,7 @@ const AllLoans = () => {
             <h1 className="font-semibold">Category : {loan.category}</h1>
             <h3 className="font-semibold">Max Limits : ${loan.maxLimit}</h3>
             <h1 className="font-semibold">Interest : {loan.interest}</h1>
-            <Link to={`/loanDetails/${loan._id}`} className="btn bg-red-500 w-full rounded-xl md:px-6 py-2 text-white cursor-pointer  hover:bg-red-600 transition-all">
+            <Link to={`/loanDetails/${loan._id}`} className="btn bg-red-500 w-full rounded-lg md:px-6 py-2 text-white cursor-pointer  hover:bg-red-600 transition-all">
               View Details
             </Link>
           </div>

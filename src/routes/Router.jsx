@@ -32,18 +32,14 @@ export const router = createBrowserRouter([
       //       </PrivateRoute>
       //     ),
       //   },
-      //   {
-      //     path: "/loanDetails/:id",
-      //     // loader: ({ params }) =>
-      //     //   fetch(
-      //     //     `https://homenest-server-kappa.vercel.app/propertyDetails/${params.id}`
-      //     //   ),
-      //     element: (
-      //       <PrivateRoute>
-      //         <LoanDetails></LoanDetails>
-      //       </PrivateRoute>
-      //     ),
-      //   },
+      {
+        path: "/loanDetails/:id",
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:3000/loans/${params.id}`
+          ),
+        element: <LoanDetails></LoanDetails>,
+      },
       {
         path: "/Login",
         element: <Login></Login>,
