@@ -47,7 +47,7 @@ const Navbar = () => {
       </NavLink>
       {user ? (
         <NavLink
-          to={"/dashboard"}
+          to={"/dashboard/myLoans"}
           className={({ isActive }) =>
             isActive ? "font-semibold border-b-2 text-red-500" : "text-gray-500"
           }

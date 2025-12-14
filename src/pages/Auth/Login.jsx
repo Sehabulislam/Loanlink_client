@@ -38,6 +38,7 @@ const Login = () => {
   }
   return (
       <div className="flex w-10/12 lg:w-11/12 mx-auto">
+        <title>Loanlink | Login</title>
           <div className="full lg:max-w-4xl mx-auto space-y-5 lg:py-10">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold">Welcome Back</h1>

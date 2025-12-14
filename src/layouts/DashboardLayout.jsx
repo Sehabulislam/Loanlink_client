@@ -55,22 +55,22 @@ const DashboardLayout = () => {
 
             {/* List item */}
             <li>
-              <button
+              <Link to={'myLoans'}
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="My Loans"
               >
                 <IoDocumentAttachOutline size={25} />
                 <span className="is-drawer-close:hidden">My Loans</span>
-              </button>
+              </Link>
             </li>
             <li>
-              <button
+              <Link to={'myProfile'}
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="My Profile"
               >
                 <CgProfile size={25} />
                 <span className="is-drawer-close:hidden">Settings</span>
-              </button>
+              </Link>
             </li>
           </ul>
         </div>

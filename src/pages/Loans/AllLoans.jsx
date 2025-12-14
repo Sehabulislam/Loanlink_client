@@ -16,6 +16,7 @@ const AllLoans = () => {
   if (isLoading) return <Spinner></Spinner>;
   return (
     <div className="">
+      <title>Loanlink | All Loans</title>
       <div>
         <h1 className="text-red-500 font-bold md:text-3xl border-b-2  w-sm mx-auto text-center">
           {" "}

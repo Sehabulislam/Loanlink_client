@@ -42,6 +42,7 @@ const Register = () => {
   };
   return (
     <div className="flex w-10/12 lg:w-11/12 mx-auto">
+      <title>Loanlink | Register</title>
       <div className="full md:max-w-lg mx-auto space-y-5 lg:py-10">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold">Create an Account</h1>

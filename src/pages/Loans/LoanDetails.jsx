@@ -83,6 +83,7 @@ const LoanDetails = () => {
   }
   return (
     <div className="md:py-10">
+      <title>Loanlink | Loan Details</title>
       <h1
         onClick={() => navigate("/allLoans")}
         className="flex justify-end md:justify-start items-center gap-1 text-gray-500 cursor-pointer mr-5"

@@ -9,6 +9,7 @@ import AvailableLoan from '../Loans/AvailableLoan';
 const Home = () => {
     return (
         <div className='space-y-5 md:space-y-10'>
+            <title>Loanlink | Home</title>
             <Banner></Banner>
             <AvailableLoan></AvailableLoan>
             <Features></Features>
