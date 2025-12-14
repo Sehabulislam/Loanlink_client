@@ -47,7 +47,7 @@ const WorkProcess = () => {
             <img
               src={work.image}
               alt={work.title}
-              className="w-26 h-25 object-cover rounded-2xl mx-auto "
+              className="w-26 h-25 object-cover rounded-2xl mx-auto shadow-2xl shadow-red-300"
             />
             <h3 className="bg-red-500 text-white p-2 rounded-full">Step {work.stepNo}</h3>
             <h1 className="text-xl md:text-2xl font-bold">

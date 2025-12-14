@@ -17,12 +17,12 @@ const AvailableLoan = () => {
     <div className="text-center">
       <h1 className="text-red-500 font-bold md:text-xl"> -- Loan Type</h1>
       <h1 className="text-3xl md:text-4xl font-bold mb-5">Available Loans</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2 md:w-10/12 mx-auto gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2 md:w-10/12 mx-auto gap-5">
         {/* Single Loan Card */}
         {data?.map((loan, ind) => (
           <div
             key={ind}
-            className="w-full p-5 bg-base-300  flex flex-col items-center justify-center text-center space-y-1 md:space-y-2 rounded-2xl"
+            className="w-full p-5 bg-base-300  flex flex-col items-center justify-center text-center space-y-1 md:space-y-2 rounded-2xl shadow-lg hover:shadow-xl transition"
           >
             <img
               src={loan.image}

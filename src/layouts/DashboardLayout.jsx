@@ -11,8 +11,9 @@ const DashboardLayout = () => {
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         {/* Navbar */}
-        <nav className="navbar w-full bg-base-300">
-          <label
+        <nav className="navbar w-full bg-base-300 flex justify-between items-center px-5">
+          <div className="flex items-center">
+            <label
             htmlFor="my-drawer-4"
             aria-label="open sidebar"
             className="btn btn-square btn-ghost"
@@ -25,6 +26,13 @@ const DashboardLayout = () => {
               Loan<span className="text-red-500">Link</span>
             </h1>
           </Link>
+          </div>
+          <div>
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                className="w-10 rounded-full"/>
+              </div>
         </nav>
         {/* Page content here */}
         <div className="p-4">
@@ -41,6 +49,7 @@ const DashboardLayout = () => {
         <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
           {/* Sidebar content here */}
           <ul className="menu w-full grow">
+            <span className="font-semibold">Menu</span>
             {/* List item */}
             <li>
               <Link
@@ -52,10 +61,10 @@ const DashboardLayout = () => {
                 <span className="is-drawer-close:hidden">Home</span>
               </Link>
             </li>
-
             {/* List item */}
             <li>
-              <Link to={'myLoans'}
+              <Link
+                to={"myLoans"}
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="My Loans"
               >
@@ -64,7 +73,8 @@ const DashboardLayout = () => {
               </Link>
             </li>
             <li>
-              <Link to={'myProfile'}
+              <Link
+                to={"myProfile"}
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="My Profile"
               >

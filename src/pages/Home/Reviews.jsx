@@ -97,7 +97,7 @@ const Reviews = () => {
                 <img
                   src={review.reviewerImage}
                   alt=""
-                  className="w-15 h-15 object-cover rounded-full mt-2"
+                  className="w-15 h-15 object-cover rounded-full mt-2 shadow-xl shadow-red-300"
                 />
                 <div className="">
                   <h1 className="text-2xl font-bold">{review.reviewerName}</h1>

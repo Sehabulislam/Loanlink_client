@@ -1,5 +1,4 @@
 import React from "react";
-import { VscActivateBreakpoints } from "react-icons/vsc";
 const faq = [
   {
     question: "How long does the loan approval process take?",
