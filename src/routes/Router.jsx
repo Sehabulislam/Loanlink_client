@@ -11,6 +11,7 @@ import Spinner from "../components/Spinner";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MyProfile from "../pages/MyProfile";
+import ApplyLoan from "../pages/Loans/ApplyLoan";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,16 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/applyLone/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/loans/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <ApplyLoan></ApplyLoan>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/Login",
         element: <Login></Login>,
       },
@@ -49,6 +60,7 @@ export const router = createBrowserRouter([
   {
     path : '/dashboard',
     element : <DashboardLayout></DashboardLayout>,
+    hydrateFallbackElement: <Spinner></Spinner>,
     children : [
       {
         path : 'myLoans',

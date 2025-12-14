@@ -1,9 +1,7 @@
 import React from "react";
-import toast from "react-hot-toast";
-import { FaDollarSign } from "react-icons/fa";
-import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { IoMdArrowBack } from "react-icons/io";
-import { useLoaderData, useNavigate } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
+import useRole from "../../hooks/useRole";
 
 const emiPlanSteps = [
   {
@@ -75,12 +73,10 @@ const emiPlanSteps = [
 
 const LoanDetails = () => {
   const loan = useLoaderData();
-  const { category, description, image, interest, maxLimit, title } = loan;
+  const { category, description, image, interest, maxLimit, title,_id } = loan;
   const navigate = useNavigate();
+  const role = useRole();
 
-  const handleApplyNow = () => {
-    toast.success("Apply Successful!");
-  }
   return (
     <div className="md:py-10">
       <title>Loanlink | Loan Details</title>
@@ -91,12 +87,12 @@ const LoanDetails = () => {
         <IoMdArrowBack size={20} />
         Back to All Loans
       </h1>
-      <div className="flex flex-col md:flex-row items-center md:items-center justify-center gap-5 p-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-5 p-1">
         <div>
           <img
             src={image}
             alt=""
-            className="md:h-130 lg:max-w-3xl  rounded-2xl object-cover shadow-2xl"
+            className=" w-full h-100 lg:h-130  lg:max-w-3xl rounded-2xl object-cover shadow-2xl"
           />
         </div>
         <div className="w-full md:border-l-2 border-gray-400 md:pl-6">
@@ -111,52 +107,58 @@ const LoanDetails = () => {
             </p>
             <h2>
               <span className="font-bold">Interest : </span>
-              {interest}
+              {interest}% Yearly
             </h2>
             <h2>
               <span className="font-bold">Max Limit : </span>
               {maxLimit}
             </h2>
-            <button onClick={handleApplyNow} className="btn bg-red-500 hover:bg-red-600 text-white w-full md:w-50 md:px-10 md:py-6 md:text-lg">
+            <Link to={`/applyLone/${_id}`}
+              className={
+                role === "borrower"
+                  ? "btn bg-red-500 hover:bg-red-600 text-white w-full md:w-50 md:px-10 md:py-6 md:text-lg"
+                  : "btn bg-gray-400 text-white cursor-not-allowed w-full md:w-50 md:px-10 md:py-6 md:text-lg"
+              }
+            >
               Apply Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
       <div className="max-w-4xl mx-auto mt-10 p-1">
         <h1 className="text-red-500 text-2xl font-bold mb-6">
-         5-Step EMI Plan Guide
+          5-Step EMI Plan Guide
         </h1>
         <div className="space-y-2">
-            {emiPlanSteps.map((step, ind) => (
-          <div 
-            key={ind}
-            className="collapse collapse-arrow border border-gray-300 shadow hover:shadow-md cursor-pointer rounded-lg transition"
-          >
-            <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title inline-flex items-center gap-4 text-lg bg-gray-50">
+          {emiPlanSteps.map((step, ind) => (
+            <div
+              key={ind}
+              className="collapse collapse-arrow border border-gray-300 shadow hover:shadow-md cursor-pointer rounded-lg transition"
+            >
+              <input type="radio" name="my-accordion-2" />
+              <div className="collapse-title inline-flex items-center gap-4 text-lg bg-gray-50">
                 <h2 className="bg-red-500 px-4 py-2 rounded-lg text-white ">
                   {step.stepNumber}
                 </h2>
-              <div className="">
-                <h1 className="font-semibold text-base md:text-xl">
-                {step.title}
-              </h1>
-              <p className="text-sm mt-1">{step.description}</p>
+                <div className="">
+                  <h1 className="font-semibold text-base md:text-xl">
+                    {step.title}
+                  </h1>
+                  <p className="text-sm mt-1">{step.description}</p>
+                </div>
+              </div>
+              {/* collapse content */}
+              <div className="collapse-content border-t border-gray-300 space-y-3 px-5 py-4">
+                <h1>{step.details}</h1>
+                <h1 className="text-xl">Key Points :</h1>
+                <ul className="list-disc list-inside">
+                  {step.keyPoints.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </div>
             </div>
-            {/* collapse content */}
-            <div className="collapse-content border-t border-gray-300 space-y-3 px-5 py-4">
-              <h1>{step.details}</h1>
-              <h1 className="text-xl">Key Points :</h1>
-              <ul className="list-disc list-inside">
-                {step.keyPoints.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
+          ))}
         </div>
       </div>
     </div>
